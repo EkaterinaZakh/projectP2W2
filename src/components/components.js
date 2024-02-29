@@ -1,7 +1,9 @@
-import IndexPage from './pages/IndexPage';
+import HomePage from './pages/HomePage';
+import AccountPage from './pages/AccountPage';
 
 const components = {
-  IndexPage,
+  HomePage,
+  AccountPage,
 };
 
 export default components;
