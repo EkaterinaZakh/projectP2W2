@@ -8,7 +8,7 @@ export default function NavBar({ user }) {
   const logoutHandler = async () => {
     try {
       if (user) {
-        const res = await axios.get('/api/auth/logout');
+        const res = await axios.get('/auth/logout');
         if (res.status === 200) {
           window.location.href = '/';
         }

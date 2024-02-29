@@ -14,6 +14,8 @@ import apiSignupRouter from './routes/authRouters/apiSignupRouter';
 import apiLoginRouter from './routes/authRouters/apiLoginRouter';
 import homePageRouter from './routes/homePageRouters/homePageRouter';
 import accountRouter from './routes/accountRouters/accountRouter';
+import logoutRouter from './routes/authRouters/logoutRouter';
+import apiAccountRouter from './routes/accountRouters/apiAccountRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -38,7 +40,11 @@ app.use('/addinitiative', addInitiativeRouter);
 app.use('/api/addinitiative', apiAddInitiativeRouter);
 app.use('/auth/signup', signupRouter);
 app.use('/auth/login', loginRouter);
+app.use('/auth/logout', logoutRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
+app.use('/api/account', apiAccountRouter);
+
+
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

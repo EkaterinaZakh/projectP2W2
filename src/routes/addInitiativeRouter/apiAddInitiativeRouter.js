@@ -18,6 +18,7 @@ apiAddInitiativeRouter.post('/', async (req, res) => {
       name,
       description,
       districtId,
+      userId: res.locals.user?.id,
     });
   } catch (error) {
     console.error(error);

@@ -1,22 +1,37 @@
-import React from 'react';
+// import React from 'react';
+// import { Card } from 'react-bootstrap';
 
-export default function InitiativeCard({ initiative }) {
-  return (
-    <>
-      <h1>{initiative.name}</h1>
-      <h2>{initiative.description}</h2>
-    </>
-  );
-}
-
-// export default function AnimalCard({ el, deleteHandler }) {
+// export default function InitiativeCard({ initiative, deleteHandler }) {
 //   return (
-//     <div>
-//       <div className="pet-list">
-//         <h2>{el.name}</h2>
-//         <img src={el.image} alt={el.name} />
-//         <Button variant="danger" onClick={() => deleteHandler(el.id)}>Delete</Button>
-//       </div>
-//     </div>
+//     <Card className="mb-3">
+//       <Card.Body>
+//         <Card.Title>{initiative.name}</Card.Title>
+//         <Card.Text>{initiative.description}</Card.Text>
+//         <button
+//           type="button"
+//           className="btn btn-danger"
+//           onClick={() => deleteHandler(post.id)}
+//         >
+//           Delete post
+//         </button>
+//       </Card.Body>
+//     </Card>
 //   );
 // }
+
+import React from 'react';
+import { Card, Button } from 'react-bootstrap';
+
+export default function InitiativeCard({ initiative, deleteHandler }) {
+  return (
+    <Card className="mb-3">
+      <Card.Body>
+        <Card.Title>{initiative.name}</Card.Title>
+        <Card.Text>{initiative.description}</Card.Text>
+        <Button variant="danger" onClick={() => deleteHandler(initiative.id)}>
+          Delete Initiative
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+}
