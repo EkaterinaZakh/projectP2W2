@@ -7,13 +7,18 @@ export default function HomePage({ allInitiatives }) {
 
   return (
     <div>
-      <h1>Список Инициатив</h1>
-      <div>
-        {allInitiatives.map((initiative) => (
-          <InitiativeCard key={initiative.id} initiative={initiative} />
-        ))}
-      </div>
+      <section className="svh-100 align-items-center" style={{ backgroundColor: "#eee" }}>
+        <div className="container h-100 ">
+          <h1 style={{ textAlign: "center" }}>Список Инициатив</h1>
+          <div>
+            {allInitiatives.map((initiative) => (
+              <InitiativeCard key={initiative.id} initiative={initiative} />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
+
   );
 }
 
