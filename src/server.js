@@ -46,5 +46,4 @@ app.use('/account', accountRouter);
 app.use('/api/account', apiAccountRouter);
 
 
-
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
