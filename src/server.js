@@ -7,6 +7,9 @@ import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import apiRouter from './routes/apiRouter';
 import resLocals from './middlewares/resLocals';
+import initiativeRouter from './routes/initiativeRouter/initiativeRouter';
+import apiAddInitiativeRouter from './routes/addInitiativeRouter/apiAddInitiativeRouter';
+import addInitiativeRouter from './routes/addInitiativeRouter/addInitiativeRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -23,6 +26,9 @@ app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/', indexRouter);
+app.use('/', initiativeRouter);
+app.use('/addinitiative', addInitiativeRouter);
+app.use('/api/addinitiative', apiAddInitiativeRouter);
 app.use('/api', apiRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
