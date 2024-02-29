@@ -17,9 +17,6 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      level: {
-        type: Sequelize.STRING,
-      },
       districtId: {
         type: Sequelize.INTEGER,
         references: {
