@@ -7,19 +7,22 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+      },
+      password: {
+        type: Sequelize.STRING,
       },
       districtId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Districts",
-          key: "id"
+          model: 'Districts',
+          key: 'id',
         },
       },
       createdAt: {
@@ -31,10 +34,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('NOW'),
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Users');
-  }
+  },
 };

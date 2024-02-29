@@ -7,25 +7,30 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       voites: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       districtId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Districts',
+          key: 'id',
+        },
+        onDelete: 'CASCADE',
       },
       userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Users",
-          key: "id"
+          model: 'Users',
+          key: 'id',
         },
         onDelete: 'CASCADE',
       },
@@ -38,10 +43,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('NOW'),
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Initiatives');
-  }
+  },
 };
