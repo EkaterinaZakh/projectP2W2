@@ -32,10 +32,10 @@ app.use(resLocals);
 app.use('/', initiativeRouter);
 app.use('/addinitiative', addInitiativeRouter);
 app.use('/api/addinitiative', apiAddInitiativeRouter);
-app.use("/auth/signup", signupRouter);
-app.use("/auth/login", loginRouter);
-app.use("/api/auth/signup", apiSignupRouter);
-app.use("/api/auth/login", apiLoginRouter);
+app.use('/auth/signup', signupRouter);
+app.use('/auth/login', loginRouter);
+app.use('/api/auth/signup', apiSignupRouter);
+app.use('/api/auth/login', apiLoginRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
 

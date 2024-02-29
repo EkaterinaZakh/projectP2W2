@@ -1,0 +1,22 @@
+/* Укажем дополнительные стили для всех элементов */
+* {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Расположение элементов */
+  h1, p, a {
+    margin-bottom: 20px;
+  }
+  
+  /* Ссылки */
+  a {
+    text-decoration: none;
+    color: #004085;
+  }
+  
+  /* Параграфы */
+  p {
+    font-size: 1.2em;
+    color: #004085;
+  }
+  
