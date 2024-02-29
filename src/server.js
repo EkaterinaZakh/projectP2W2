@@ -4,12 +4,16 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
-import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
 import resLocals from './middlewares/resLocals';
 import initiativeRouter from './routes/initiativeRouter/initiativeRouter';
 import apiAddInitiativeRouter from './routes/addInitiativeRouter/apiAddInitiativeRouter';
 import addInitiativeRouter from './routes/addInitiativeRouter/addInitiativeRouter';
+import signupRouter from './routes/authRouters/signupRouter';
+import loginRouter from './routes/authRouters/loginRouter';
+import apiSignupRouter from './routes/authRouters/apiSignupRouter';
+import apiLoginRouter from './routes/authRouters/apiLoginRouter';
+import homePageRouter from './routes/homePageRouters/homePageRouter';
+import accountRouter from './routes/accountRouters/accountRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -25,10 +29,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(resLocals);
 
-app.use('/', indexRouter);
 app.use('/', initiativeRouter);
 app.use('/addinitiative', addInitiativeRouter);
 app.use('/api/addinitiative', apiAddInitiativeRouter);
-app.use('/api', apiRouter);
+app.use("/auth/signup", signupRouter);
+app.use("/auth/login", loginRouter);
+app.use("/api/auth/signup", apiSignupRouter);
+app.use("/api/auth/login", apiLoginRouter);
+app.use('/', homePageRouter);
+app.use('/account', accountRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
