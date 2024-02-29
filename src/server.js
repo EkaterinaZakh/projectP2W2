@@ -4,8 +4,6 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
-import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
 import resLocals from './middlewares/resLocals';
 import signupRouter from './routes/authRouters/signupRouter';
 import loginRouter from './routes/authRouters/loginRouter';
@@ -28,12 +26,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(resLocals);
 
-app.use('/', indexRouter);
-app.use('/api', apiRouter);
-app.use("/auth/signup", signupRouter)
-app.use("/auth/login", loginRouter)
-app.use("/api/auth/signup", apiSignupRouter)
-app.use("/api/auth/login", apiLoginRouter)
+app.use('/auth/signup', signupRouter);
+app.use('/auth/login', loginRouter);
+app.use('/api/auth/signup', apiSignupRouter);
+app.use('/api/auth/login', apiLoginRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
 
