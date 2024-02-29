@@ -4,9 +4,10 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
-import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
 import resLocals from './middlewares/resLocals';
+import initiativeRouter from './routes/initiativeRouter/initiativeRouter';
+import apiAddInitiativeRouter from './routes/addInitiativeRouter/apiAddInitiativeRouter';
+import addInitiativeRouter from './routes/addInitiativeRouter/addInitiativeRouter';
 import signupRouter from './routes/authRouters/signupRouter';
 import loginRouter from './routes/authRouters/loginRouter';
 import apiSignupRouter from './routes/authRouters/apiSignupRouter';
@@ -28,12 +29,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(resLocals);
 
-app.use('/', indexRouter);
-app.use('/api', apiRouter);
-app.use("/auth/signup", signupRouter)
-app.use("/auth/login", loginRouter)
-app.use("/api/auth/signup", apiSignupRouter)
-app.use("/api/auth/login", apiLoginRouter)
+app.use('/', initiativeRouter);
+app.use('/addinitiative', addInitiativeRouter);
+app.use('/api/addinitiative', apiAddInitiativeRouter);
+app.use("/auth/signup", signupRouter);
+app.use("/auth/login", loginRouter);
+app.use("/api/auth/signup", apiSignupRouter);
+app.use("/api/auth/login", apiLoginRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
 
