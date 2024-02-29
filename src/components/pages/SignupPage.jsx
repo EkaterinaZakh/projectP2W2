@@ -19,10 +19,14 @@ export default function SignupPage({ districts, redirect }) {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // const formData = Object.fromEntries(new FormData(e.target));
     const response = await axios.post('/api/auth/signup', formData)
     if (response.status === 200) {
-      window.location = redirect ?? "/"
+
+      if (window.history.length > 1) {
+        window.location = "/"
+      } else {
+        window.location = window.history.go(-2)
+      }
     }
   }
   return (
