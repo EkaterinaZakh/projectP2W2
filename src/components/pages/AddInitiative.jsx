@@ -26,23 +26,26 @@ export default function AddInitiative({ districtAll, user }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="gov-form">
       <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
+        <label htmlFor="exampleInputEmail1" className="form-label gov-label">
           Название инициативы
-          <input value={formData.name} name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange} />
         </label>
+        <input value={formData.name} name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={handleChange} />
       </div>
       <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
+        <label htmlFor="exampleInputPassword1" className="form-label gov-label">
           Текст инициативы
-          <input value={formData.description} name="description" className="form-control" id="exampleInputPassword1" onChange={handleChange} />
         </label>
+        <input value={formData.description} name="description" className="form-control" id="exampleInputPassword1" onChange={handleChange} />
       </div>
 
-      <div className="form-outline flex-fill mb-0">
+      <div className="form-outline flex-fill mb-3">
+        <label className="form-label gov-label" htmlFor="form3Example1c">
+          Выберите район
+        </label>
         <select
-          className="form-select"
+          className="form-select gov-select"
           aria-label="Default select example"
           name="districtId"
           placeholder="Выберите район"
@@ -53,12 +56,12 @@ export default function AddInitiative({ districtAll, user }) {
         >
           {districtAll.map((el) => <option key={el.id} value={el.id}>{el.name}</option>)}
         </select>
-        <label className="form-label" htmlFor="form3Example1c">
-          Выберите район
-        </label>
       </div>
 
-      <button type="submit" className="btn btn-primary">Submit</button>
+      <div className="mb-3 d-grid">
+        <button type="submit" className="btn btn-primary gov-btn">Submit</button>
+      </div>
     </form>
+
   );
 }
