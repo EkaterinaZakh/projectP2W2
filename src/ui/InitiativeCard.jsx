@@ -15,8 +15,11 @@ export default function InitiativeCard({ initiative, votingHandler }) {
                 </div>
                 <div className="card-body">
                   <h4>{initiative.description}</h4>
-                  <a href="#" class="btn btn-primary">Подробнее</a>
-                  <a href="#" class="btn btn-primary" onClick={() => votingHandler(initiative)}>Проголосовать</a>
+                  <h3>{initiative.district}</h3>
+                  <div className=" d-flex row">
+                    <a href={`/initiatives/${initiative.id}`} class="btn btn-primary">Подробнее</a>
+                    <a class="btn btn-success" onClick={() => votingHandler(initiative)}>Проголосовать</a>
+                  </div>
                   <p>Голосов: {initiative.voites}</p>
                 </div>
               </div>

@@ -13,6 +13,8 @@ export default function HomePage({ allInitiatives }) {
         setInitiatives(prev => prev.map(el => el.id === initiative.id ? response.data : el))
       }
     } catch (error) {
+      window.location = "/auth/signup"
+
       console.error('Ошибка при голосовании', error);
     }
 
