@@ -21,7 +21,7 @@ export default function AddInitiative({ districtAll, user }) {
     event.preventDefault();
     const response = await axios.post('/api/addinitiative', formData);
     if (response.status === 200) {
-      window.location.href = '/';
+      window.location.href = '/account';
     }
   };
 
