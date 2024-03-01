@@ -1,55 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import { Col, Row, Spinner } from 'react-bootstrap';
-// import axios from 'axios';
-// // import ProfilePicEdit from '../ui/ProfilePicEdit';
-// import Loader from '../HOC/Loader';
-// import InitiativeCard from '../../ui/InitiativeCard';
-
-// export default function AccountPage({ userInitiatives }) {
-//   const [user, setUser] = useState(null);
-//   useEffect(() => {
-//     const controller = new AbortController();
-//     const { signal } = controller;
-//     axios('/api/auth', { signal })
-//       .then((res) => setUser(res.data))
-//       .catch(console.log);
-
-//     return () => controller.abort();
-//   }, []);
-//   console.log(user);
-//   return (
-//     <Row className="justify-content-center align-items-center">
-//       <Loader loading={!user}>
-//         <Col xs={4}>
-//           {/* <ProfilePicEdit user={user} /> */}
-//         </Col>
-//         <Col xs={8}>
-//           <Row>
-//             <Col xs={12}>
-//               <p>
-//                 Name:
-//                 {user?.username}
-//               </p>
-//             </Col>
-//             <Col xs={12}>
-//               <p>
-//                 Email:
-//                 {user?.email}
-//               </p>
-//             </Col>
-//             </Col>
-//             <Col xs={12}>
-//               {userInitiatives.map((initiative) => (
-//                 <InitiativeCard key={initiative.id} initiative={initiative} />
-//               ))}
-//             </Col>
-//           </Row>
-//         </Col>
-//       </Loader>
-//     </Row>
-//   );
-// }
-
 import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import axios from 'axios';
@@ -65,6 +13,15 @@ export default function AccountPage({ user, userInitiatives }) {
       console.log(error);
     }
   };
+  // const editHandler = async (e, id) => {
+  //   const updateInitiative = Object.fromEntries(new FormData(e.target));
+  //   const response = await axios(`/account/edit/${id}`, updateInitiative);
+  //   if (response.status === 200) {
+  //     const newInitiative = await response.json();
+  //     // eslint-disable-next-line max-len
+  //     setAllInitiatives((prev) => prev.map((initiative) => (initiative.id === id ? newInitiative : initiative)));
+  //   }
+  // };
   return (
     <Row className="justify-content-center align-items-center">
       <Col xs={4}>
@@ -87,6 +44,7 @@ export default function AccountPage({ user, userInitiatives }) {
                 key={initiative.userId}
                 initiative={initiative}
                 deleteHandler={deleteHandler}
+                // editHandler={editHandler}
               />
             ))}
           </Col>
@@ -95,55 +53,3 @@ export default function AccountPage({ user, userInitiatives }) {
     </Row>
   );
 }
-
-// import React, { useEffect, useState } from 'react';
-// import { Col, Row, Spinner } from 'react-bootstrap';
-// import axios from 'axios';
-// import Loader from '../HOC/Loader';
-// import InitiativeCard from '../../ui/InitiativeCard';
-
-// export default function AccountPage({ user, userInitiatives }) {
-//   const [user, setUser] = useState(null);
-//   useEffect(() => {
-//     const controller = new AbortController();
-//     const { signal } = controller;
-//     axios('/account', { signal })
-//       .then((res) => setUser(res.data))
-//       .catch(console.log);
-
-//     return () => controller.abort();
-//   }, []);
-
-//   return (
-//     <Row className="justify-content-center align-items-center">
-//       <Loader loading={!user}>
-//         <Col xs={4}>
-//           {/* <ProfilePicEdit user={user} /> */}
-//         </Col>
-//         <Col xs={8}>
-//           <Row>
-//             <Col xs={12}>
-//               <p>
-//                 Name:
-//                 {' '}
-//                 {user?.username}
-//               </p>
-//             </Col>
-//             <Col xs={12}>
-//               <p>
-//                 Email:
-//                 {' '}
-//                 {user?.email}
-//               </p>
-//             </Col>
-//             <Col xs={12}>
-//               {userInitiatives.map((initiative) => (
-//                 <InitiativeCard key={initiative.id} initiative={initiative} />
-//               ))}
-//             </Col>
-//           </Row>
-//         </Col>
-//       </Loader>
-//     </Row>
-//   );
-// }

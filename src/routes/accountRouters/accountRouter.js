@@ -13,7 +13,6 @@ accountRouter.get('/', async (req, res) => {
         userId: res.locals.user.id,
       },
     });
-    console.log({ userInitiatives, user: res.locals.user });
 
     res.render('AccountPage', { userInitiatives });
   } catch (error) {

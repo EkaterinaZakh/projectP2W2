@@ -21,7 +21,7 @@ export default function NavBar({ user }) {
   return (
     <Navbar bg="primary" variant="dark" className="justify-content-between">
       <Container>
-        <Navbar.Brand>{user ? `Добро пожаловать, ${user.name}` : 'Добро пожаловать, гость'}</Navbar.Brand>
+        <Navbar.Brand>{user ? `Добро пожаловать, ${user.username}` : 'Добро пожаловать, гость'}</Navbar.Brand>
         <Navbar.Brand href="/" className="text-center">Домашняя страница</Navbar.Brand>
         <Nav className="me-auto">
           {user ? (

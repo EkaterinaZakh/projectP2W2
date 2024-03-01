@@ -27,7 +27,6 @@ export default function Layout({ children, initState }) {
         />
         <link href="/css/addInitiative.css" rel="stylesheet" media="all" />
         <link href="/css/initiativePage.css" rel="stylesheet" media="all" />
-        <link href="/css/navbarstyle.css" rel="stylesheet" media="all" />
         <title>Document</title>
       </head>
       <body>

@@ -16,6 +16,8 @@ import homePageRouter from './routes/homePageRouters/homePageRouter';
 import accountRouter from './routes/accountRouters/accountRouter';
 import logoutRouter from './routes/authRouters/logoutRouter';
 import apiAccountRouter from './routes/accountRouters/apiAccountRouter';
+import editRouter from './routes/editRouter/editRouter';
+import apiEditRouter from './routes/editRouter/apiEditRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -38,12 +40,12 @@ app.use('/api/auth/login', apiLoginRouter);
 app.use('/', initiativeRouter);
 app.use('/addinitiative', addInitiativeRouter);
 app.use('/api/addinitiative', apiAddInitiativeRouter);
-app.use('/auth/signup', signupRouter);
 app.use('/auth/login', loginRouter);
 app.use('/auth/logout', logoutRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
+app.use('/account/edit', editRouter);
 app.use('/api/account', apiAccountRouter);
-
+app.use('/api/account/edit', apiEditRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
