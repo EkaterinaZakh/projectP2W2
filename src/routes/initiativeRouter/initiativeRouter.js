@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import express from 'express';
 import { Initiative, User } from '../../../db/models';
 
@@ -11,7 +12,7 @@ initiativeRouter.get('/initiatives/:id', async (req, res) => {
 
     const userName = await User.findOne({ where: { id: userId } });
 
-    const allInitiativeUser = await Initiative.findAll({ where: userId });
+    const allInitiativeUser = await Initiative.findAll({ where: { userId: userName.id } });
 
     const initState = { initiative, userName, allInitiativeUser };
     res.render('InitiativePage', initState);
