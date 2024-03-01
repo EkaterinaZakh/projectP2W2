@@ -19,7 +19,9 @@ apiAddInitiativeRouter.post('/', async (req, res) => {
       description,
       districtId,
       userId: res.locals.user?.id,
+
     });
+    res.sendStatus(200)
   } catch (error) {
     console.error(error);
     res.status(500).send('Ошибка сервера');

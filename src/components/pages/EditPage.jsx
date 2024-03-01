@@ -12,24 +12,28 @@ export default function EditPage({ oneInitiative }) {
     const response = await axios.patch(`/api/account/edit/${id}`, updateInitiative);
     if (response.status === 200) {
       window.location.href = '/account';
-    //   const newInitiative = await response.json();
+      //   const newInitiative = await response.json();
     }
   };
 
   return (
-    <Form onSubmit={(e) => editHandler(e, oneInitiative.id)}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Инициатива</Form.Label>
-        <Form.Control type="text" name="name" defaultValue={oneInitiative.name} />
-      </Form.Group>
+    <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      <div className="container h-100">
+        <Form onSubmit={(e) => editHandler(e, oneInitiative.id)}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Название</Form.Label>
+            <Form.Control type="text" name="name" defaultValue={oneInitiative.name} />
+          </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Description</Form.Label>
-        <Form.Control type="text" name="description" defaultValue={oneInitiative.description} />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Подтвердить изменения
-      </Button>
-    </Form>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Описание</Form.Label>
+            <Form.Control type="text" name="description" defaultValue={oneInitiative.description} />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Подтвердить изменения
+          </Button>
+        </Form>
+      </div>
+    </section>
   );
 }

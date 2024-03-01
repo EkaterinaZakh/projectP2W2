@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
+
 export default function InitiativeCardHomepage({ initiative, votingHandler }) {
+  const [clicked, setClicked] = useState(false)
+  const clickHandler = (e) => {
+    if (!clicked) {
+      votingHandler(initiative)
+      setClicked(true)
+    }
+  }
   return (
 
     <div className="row justify-content-around">
@@ -17,13 +25,10 @@ export default function InitiativeCardHomepage({ initiative, votingHandler }) {
                   <h4>{initiative.description}</h4>
                   <h3>{initiative.district}</h3>
                   <div className=" d-flex row">
-                    <a href={`/initiatives/${initiative.id}`} className="btn btn-primary">Подробнее</a>
-                    <a className="btn btn-success" onClick={() => votingHandler(initiative)}>Проголосовать</a>
+                    <a href={`/initiatives/${initiative.id}`} class="btn btn-primary">Подробнее</a>
+                    <a class="btn btn-success" onClick={clickHandler}>Проголосовать</a>
                   </div>
-                  <p>
-                    Голосов:
-                    {initiative.voites}
-                  </p>
+                  <p>Голосов: {initiative.voites}</p>
                 </div>
               </div>
             </div>

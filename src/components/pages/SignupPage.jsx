@@ -41,6 +41,12 @@ export default function SignupPage({ districts, redirect }) {
                     <form className="mx-1 mx-md-4" onSubmit={submitHandler}>
                       <div className="d-flex flex-column mb-4">
                         <div className="form-outline flex-fill mb-0">
+                          <label
+                            className="form-label"
+                            htmlFor="form3Example1c"
+                          >
+                            Фамилия Имя Отчество
+                          </label>
                           <input
                             type="text"
                             id="form3Example1c"
@@ -50,14 +56,15 @@ export default function SignupPage({ districts, redirect }) {
                             value={formData.name}
                             onChange={changeHandler}
                           />
+
+                        </div>
+                        <div className="form-outline flex-fill mb-0">
                           <label
                             className="form-label"
                             htmlFor="form3Example1c"
                           >
-                            Фамилия Имя Отчество
+                            Адрес электронной почты
                           </label>
-                        </div>
-                        <div className="form-outline flex-fill mb-0">
                           <input
                             type="email"
                             id="form3Example1c"
@@ -67,14 +74,15 @@ export default function SignupPage({ districts, redirect }) {
                             value={formData.email}
                             onChange={changeHandler}
                           />
+
+                        </div>
+                        <div className="form-outline flex-fill mb-0">
                           <label
                             className="form-label"
                             htmlFor="form3Example1c"
                           >
-                            Адрес электронной почты
+                            Пароль
                           </label>
-                        </div>
-                        <div className="form-outline flex-fill mb-0">
                           <input
                             type="password"
                             id="form3Example1c"
@@ -84,14 +92,15 @@ export default function SignupPage({ districts, redirect }) {
                             value={formData.password}
                             onChange={changeHandler}
                           />
+
+                        </div>
+                        <div className="form-outline flex-fill mb-0">
                           <label
                             className="form-label"
                             htmlFor="form3Example1c"
                           >
-                            Пароль
+                            Район проживания
                           </label>
-                        </div>
-                        <div className="form-outline flex-fill mb-0">
 
                           <select className="form-select" aria-label="Default select example"
                             name="districtId"
@@ -106,12 +115,7 @@ export default function SignupPage({ districts, redirect }) {
                             })}
 
                           </select>
-                          <label
-                            className="form-label"
-                            htmlFor="form3Example1c"
-                          >
-                            Район проживания
-                          </label>
+
 
                         </div>
                       </div>
