@@ -5,11 +5,11 @@ import axios from 'axios';
 
 export default function EditPage({ oneInitiative }) {
   const editHandler = async (e, id) => {
+    e.preventDefault();
     const updateInitiative = Object.fromEntries(new FormData(e.target));
-    const response = await axios.patch(`/api/account/edit/${id}`, {
-      name: updateInitiative.get('name'),
-      description: updateInitiative.get('description'),
-    });
+    console.log(updateInitiative);
+    console.log(id);
+    const response = await axios.patch(`/api/account/edit/${id}`, updateInitiative);
     if (response.status === 200) {
       window.location.href = '/account';
     //   const newInitiative = await response.json();
@@ -17,7 +17,7 @@ export default function EditPage({ oneInitiative }) {
   };
 
   return (
-    <Form onSubmit={editHandler}>
+    <Form onSubmit={(e) => editHandler(e, oneInitiative.id)}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Инициатива</Form.Label>
         <Form.Control type="text" name="name" defaultValue={oneInitiative.name} />
