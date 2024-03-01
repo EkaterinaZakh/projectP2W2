@@ -22,7 +22,7 @@ export default function NavBar({ user }) {
     <Navbar bg="primary" data-bs-theme="dark">
       <Container>
         <Navbar.Brand>{user ? `Добро пожаловать, ${user.username}` : 'Добро пожаловать, гость'}</Navbar.Brand>
-        <Nav className="me-auto">
+        <Nav bg="primary">
           <Nav.Link href="/">Домашняя страница</Nav.Link>
           {user ? (
             <>
