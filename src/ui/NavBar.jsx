@@ -19,11 +19,11 @@ export default function NavBar({ user }) {
   };
 
   return (
-    <Navbar bg="primary" variant="dark">
-      <Container className="d-flex justify-content-center align-items-center">
+    <Navbar bg="primary" data-bs-theme="dark">
+      <Container>
         <Navbar.Brand>{user ? `Добро пожаловать, ${user.username}` : 'Добро пожаловать, гость'}</Navbar.Brand>
-        <Navbar.Brand href="/" className="text-center">Домашняя страница</Navbar.Brand>
         <Nav className="me-auto">
+          <Nav.Link href="/">Домашняя страница</Nav.Link>
           {user ? (
             <>
               <Nav.Link href="/addinitiative">Создать инициативу</Nav.Link>
@@ -37,8 +37,36 @@ export default function NavBar({ user }) {
               <Nav.Link href="/auth/signup">Зарегистрироваться</Nav.Link>
             </>
           )}
+
         </Nav>
       </Container>
     </Navbar>
+
+
+
+
+
+
+    // <Navbar bg="primary" variant="dark">
+    //   <Container className="d-flex justify-content-center align-items-center">
+    //     <Navbar.Brand>{user ? `Добро пожаловать, ${user.username}` : 'Добро пожаловать, гость'}</Navbar.Brand>
+    //     <Navbar.Brand href="/" className="text-center">Домашняя страница</Navbar.Brand>
+    //     <Nav className="me-auto">
+    //       {user ? (
+    //         <>
+    //           <Nav.Link href="/addinitiative">Создать инициативу</Nav.Link>
+    //           <Nav.Link href="/account">Личный кабинет</Nav.Link>
+    //           {/* <Nav.Link as={Button} onClick={logoutHandler}>Выйти</Nav.Link> */}
+    //           <Nav.Link onClick={logoutHandler}>Выйти</Nav.Link>
+    //         </>
+    //       ) : (
+    //         <>
+    //           <Nav.Link href="/auth/login">Войти</Nav.Link>
+    //           <Nav.Link href="/auth/signup">Зарегистрироваться</Nav.Link>
+    //         </>
+    //       )}
+    //     </Nav>
+    //   </Container>
+    // </Navbar>
   );
 }

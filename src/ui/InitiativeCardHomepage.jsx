@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 
-
-export default function InitiativeCard({ initiative, votingHandler }) {
-
+export default function InitiativeCardHomepage({ initiative, votingHandler }) {
   const [clicked, setClicked] = useState(false)
   const clickHandler = (e) => {
     if (!clicked) {
@@ -12,10 +10,7 @@ export default function InitiativeCard({ initiative, votingHandler }) {
       setClicked(true)
     }
   }
-export default function InitiativeCardHomepage({ initiative, votingHandler }) {
   return (
-
-
 
     <div className="row justify-content-around">
       <div className="col-md-5 mb-4">

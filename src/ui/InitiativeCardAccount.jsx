@@ -3,18 +3,22 @@ import { Card, Button } from 'react-bootstrap';
 
 export default function InitiativeCardAccount({ initiative, deleteHandler }) {
   return (
+
+
+
     <Card className="mb-3">
       <Card.Body>
         <Card.Title>{initiative.name}</Card.Title>
         <Card.Text>{initiative.description}</Card.Text>
-        <Button variant="danger" onClick={() => deleteHandler(initiative.id)}>
-          Удалить
-        </Button>
         <a href={`/account/edit/${initiative.id}`}>
-          <Button variant="danger">
+          <Button className="btn btn-primary gov-btn mb-3">
             Редактировать
           </Button>
         </a>
+        <div></div>
+        <Button variant="danger" onClick={() => deleteHandler(initiative.id)}>
+          Удалить
+        </Button>
       </Card.Body>
     </Card>
   );
