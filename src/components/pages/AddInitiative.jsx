@@ -11,6 +11,7 @@ export default function AddInitiative({ districtAll, user }) {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setFormData({
       ...formData,
       [name]: value,

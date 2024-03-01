@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function InitiativeCard({ initiative }) {
+export default function InitiativeCard({ initiative, votingHandler }) {
   return (
 
     <div className="row justify-content-around">
@@ -15,6 +15,8 @@ export default function InitiativeCard({ initiative }) {
                 <div className="card-body">
                   <h4>{initiative.description}</h4>
                   <a href="#" class="btn btn-primary">Подробнее</a>
+                  <a href="#" class="btn btn-primary" onClick={() => votingHandler(initiative)}>Проголосовать</a>
+                  <p>Голосов: {initiative.voites}</p>
                 </div>
               </div>
             </div>
@@ -27,14 +29,3 @@ export default function InitiativeCard({ initiative }) {
   );
 }
 
-// export default function AnimalCard({ el, deleteHandler }) {
-//   return (
-//     <div>
-//       <div className="pet-list">
-//         <h2>{el.name}</h2>
-//         <img src={el.image} alt={el.name} />
-//         <Button variant="danger" onClick={() => deleteHandler(el.id)}>Delete</Button>
-//       </div>
-//     </div>
-//   );
-// }

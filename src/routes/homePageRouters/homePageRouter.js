@@ -1,11 +1,11 @@
 import express from 'express';
 import { Initiative } from '../../../db/models';
 
-const apiHomePageRouter = express.Router();
+const homePageRouter = express.Router();
 
-apiHomePageRouter.get('/', async (req, res) => {
+homePageRouter.get('/', async (req, res) => {
   try {
-    const allInitiatives = await Initiative.findAll();
+    const allInitiatives = await Initiative.findAll({ order: [['updatedAt', 'DESC']] });
     res.render('HomePage', { allInitiatives });
   } catch (error) {
     console.error('Error fetching initiatives:', error);
@@ -13,4 +13,4 @@ apiHomePageRouter.get('/', async (req, res) => {
   }
 });
 
-export default apiHomePageRouter;
+export default homePageRouter;
