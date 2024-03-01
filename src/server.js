@@ -14,6 +14,7 @@ import apiSignupRouter from './routes/authRouters/apiSignupRouter';
 import apiLoginRouter from './routes/authRouters/apiLoginRouter';
 import homePageRouter from './routes/homePageRouters/homePageRouter';
 import accountRouter from './routes/accountRouters/accountRouter';
+import apiHomePageRouter from './routes/homePageRouters/apihomePageRouter';
 import logoutRouter from './routes/authRouters/logoutRouter';
 import apiAccountRouter from './routes/accountRouters/apiAccountRouter';
 import editRouter from './routes/editRouter/editRouter';
@@ -44,6 +45,7 @@ app.use('/auth/login', loginRouter);
 app.use('/auth/logout', logoutRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
+app.use('/initiatives', apiHomePageRouter)
 app.use('/account/edit', editRouter);
 app.use('/api/account', apiAccountRouter);
 app.use('/api/account/edit', apiEditRouter);
