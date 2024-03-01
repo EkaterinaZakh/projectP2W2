@@ -12,13 +12,14 @@ export default function InitiativeCard({ initiative, votingHandler }) {
       setClicked(true)
     }
   }
+export default function InitiativeCardHomepage({ initiative, votingHandler }) {
   return (
 
 
 
     <div className="row justify-content-around">
       <div className="col-md-5 mb-4">
-        <div className="card text-black" style={{ borderRadius: "25px" }}>
+        <div className="card text-black" style={{ borderRadius: '25px' }}>
           <div className="card-body p-md-5">
             <div className="row justify-content-center">
               <div className="card">
@@ -41,7 +42,5 @@ export default function InitiativeCard({ initiative, votingHandler }) {
       </div>
     </div>
 
-
   );
 }
-
