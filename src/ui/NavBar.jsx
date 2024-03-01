@@ -8,7 +8,7 @@ export default function NavBar({ user }) {
   const logoutHandler = async () => {
     try {
       if (user) {
-        const res = await axios.get('/api/auth/logout');
+        const res = await axios.get('/auth/logout');
         if (res.status === 200) {
           window.location.href = '/';
         }
@@ -21,7 +21,7 @@ export default function NavBar({ user }) {
   return (
     <Navbar bg="primary" variant="dark" className="justify-content-between">
       <Container>
-        <Navbar.Brand>{user ? `Добро пожаловать, ${user.name}` : 'Добро пожаловать, гость'}</Navbar.Brand>
+        <Navbar.Brand>{user ? `Добро пожаловать, ${user.username}` : 'Добро пожаловать, гость'}</Navbar.Brand>
         <Navbar.Brand href="/" className="text-center">Домашняя страница</Navbar.Brand>
         <Nav className="me-auto">
           {user ? (

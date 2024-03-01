@@ -28,7 +28,6 @@ apiLoginRouter.post('/', async (req, res) => {
   delete plainUser.password;
 
   const { accessToken, refreshToken } = generateTokens({ user: plainUser });
-  console.log(accessToken, refreshToken);
 
   res
     .cookie('accessToken', accessToken, cookiesConfig.access)
