@@ -7,10 +7,6 @@ import cookiesConfig from '../../config/cookiesConfig';
 
 const apiSignupRouter = express.Router();
 
-// apiSignupRouter.get('/api/auth/signup', (req, res) => {
-//   res.json({ hello: 'world' });
-// });
-
 
 apiSignupRouter.post('/', async (req, res) => {
   const { email, username, password, districtId } = req.body;
