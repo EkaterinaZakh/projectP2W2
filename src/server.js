@@ -19,6 +19,7 @@ import logoutRouter from './routes/authRouters/logoutRouter';
 import apiAccountRouter from './routes/accountRouters/apiAccountRouter';
 import editRouter from './routes/editRouter/editRouter';
 import apiEditRouter from './routes/editRouter/apiEditRouter';
+import notFoundPageRouter from './routes/notFoundPageRouter/notFoundPageRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -45,9 +46,10 @@ app.use('/auth/login', loginRouter);
 app.use('/auth/logout', logoutRouter);
 app.use('/', homePageRouter);
 app.use('/account', accountRouter);
-app.use('/initiatives', apiHomePageRouter)
+app.use('/initiatives', apiHomePageRouter);
 app.use('/account/edit', editRouter);
 app.use('/api/account', apiAccountRouter);
 app.use('/api/account/edit', apiEditRouter);
+app.use('*', notFoundPageRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
